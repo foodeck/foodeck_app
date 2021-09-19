@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import axios from "axios";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Alert, Button, Image, ScrollView, Text, View } from "react-native";
 import {
   Asset,
@@ -56,6 +56,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
       if (refRBSheet.current) refRBSheet.current.close();
     });
   };
+
+  useEffect(() => {
+    setImgList([]);
+  }, []);
 
   return (
     <View style={styles.container}>
